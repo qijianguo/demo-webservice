@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="www.WebService.hb110.landfun.cn" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://www.WebService.hb110.landfun.cn" name="CommonService" targetNamespace="www.WebService.hb110.landfun.cn">
+  <wsdl:import location="http://localhost:8080/services/CommonService?wsdl=CommonService.wsdl" namespace="http://www.WebService.hb110.landfun.cn">
+    </wsdl:import>
+  <wsdl:binding name="CommonServiceSoapBinding" type="ns1:CommonService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="feedback">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="feedback">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="feedbackResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonService">
+    <wsdl:port binding="tns:CommonServiceSoapBinding" name="CommonServiceImplPort">
+      <soap:address location="http://localhost:8080/services/CommonService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
